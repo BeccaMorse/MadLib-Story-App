@@ -2,16 +2,18 @@ package models;
 
 public class StoryTemplate {
 	private int templateId;
-	private String story;
+	private String name;
+	private String body;
 	
 	public StoryTemplate() {
 		super();
 	}
 
-	public StoryTemplate(int templateId, String story) {
+	public StoryTemplate(int templateId, String name, String body) {
 		super();
 		this.templateId = templateId;
-		this.story = story;
+		this.name = name;
+		this.body = body;
 	}
 
 	public int getTemplateId() {
@@ -22,18 +24,25 @@ public class StoryTemplate {
 		this.templateId = templateId;
 	}
 
-	public String getStory() {
-		return story;
+	public String getName() {
+		return name;
 	}
 
-	public void setStory(String story) {
-		this.story = story;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
 	}
 
 	@Override
 	public String toString() {
-		return "StoryTemplate [templateId=" + templateId + ", story=" + story + "]";
+		return "StoryTemplate [templateId=" + templateId + ", name=" + name + ", body=" + body + "]";
 	}
-	
 
 }

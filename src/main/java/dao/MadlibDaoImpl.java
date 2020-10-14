@@ -44,7 +44,7 @@ public class MadlibDaoImpl implements MadlibDao {
 	@Override
 	public User getUserById(int userId) {
 		User user = new User();
-		String sql = "SELECT * FROM users WHERE userId = ?";
+		String sql = "SELECT * FROM users WHERE user_id = ?";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, userId);
@@ -82,7 +82,7 @@ public class MadlibDaoImpl implements MadlibDao {
 
 	@Override
 	public void deleteUserById(int userId) {
-		String sql = "DELETE from users WHERE userId = ?";
+		String sql = "DELETE from users WHERE user_id = ?";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, userId);
