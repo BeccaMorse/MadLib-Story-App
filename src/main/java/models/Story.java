@@ -15,6 +15,8 @@ public class Story {
 		super();
 		this.storyId = storyId;
 		this.userId = userId;
+		this.templateId = templateId;
+		this.name = name;
 		this.body = body;
 	}
 
@@ -41,6 +43,14 @@ public class Story {
 	public void setTemplateId(int templateId) {
 		this.templateId = templateId;
 	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public String getBody() {
 		return body;
@@ -52,7 +62,7 @@ public class Story {
 
 	@Override
 	public String toString() {
-		return "Story [storyId=" + storyId + ", userId=" + userId + ", templateId=" + templateId + ", body=" + body + "]";
+		return "Story [storyId=" + storyId + ", userId=" + userId + ", templateId=" + templateId + ", name=" + name + ", body=" + body + "]";
 	}
 
 }
