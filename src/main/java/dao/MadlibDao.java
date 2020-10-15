@@ -10,7 +10,9 @@ public interface MadlibDao {
 
 	public int insertUser(User user);
 	
-	public void insertStory(Story story);
+	public int insertStoryTemplate(StoryTemplate storyTemplate);
+	
+	public int insertStory(Story story);
 	
 	public User getUserById(int userId);
 	
@@ -23,6 +25,8 @@ public interface MadlibDao {
 	public List<Story> getStoriesByUser(int userId);
 	
 	public void deleteUserById(int userId);
+	
+	public void deleteStoryTemplateById(int templateId);
 	
 	public void deleteStoryById(int storyId);
 }

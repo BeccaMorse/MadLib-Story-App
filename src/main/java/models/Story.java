@@ -3,17 +3,21 @@ package models;
 public class Story {
 	private int storyId;
 	private int userId;
-	private String story;
+	private int templateId;
+	private String name;
+	private String body;
 	
 	public Story() {
 		super();
 	}
 
-	public Story(int storyId, int userId, String story) {
+	public Story(int storyId, int userId, int templateId, String name, String body) {
 		super();
 		this.storyId = storyId;
 		this.userId = userId;
-		this.story = story;
+		this.templateId = templateId;
+		this.name = name;
+		this.body = body;
 	}
 
 	public int getStoryId() {
@@ -31,18 +35,34 @@ public class Story {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
-	public String getStory() {
-		return story;
+	
+	public int getTemplateId() {
+		return templateId;
+	}
+	
+	public void setTemplateId(int templateId) {
+		this.templateId = templateId;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setStory(String story) {
-		this.story = story;
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
 	}
 
 	@Override
 	public String toString() {
-		return "Story [storyId=" + storyId + ", userId=" + userId + ", story=" + story + "]";
+		return "Story [storyId=" + storyId + ", userId=" + userId + ", templateId=" + templateId + ", name=" + name + ", body=" + body + "]";
 	}
 
 }
