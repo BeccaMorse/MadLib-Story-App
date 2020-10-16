@@ -27,22 +27,37 @@ public class DaoTest {
 	public static void setup() {
 		conn = ConnectionFactory.getConnection();
 		mDao = new MadlibDaoImpl(conn);
+		User testUser = new User(0, "testusername", "testpassword");
+		userId = mDao.insertUser(testUser);
+		StoryTemplate testTemplate = new StoryTemplate(0, "testname", "testbody");
+		templateId = mDao.insertStoryTemplate(testTemplate);
+		Story testStory = new Story(0, userId, templateId, "testname", "teststorybody");
+		storyId = mDao.insertStory(testStory);
 	}
 	
 	@Test
-	public void testInsertEverything() {
-		User testUser = new User(0, "testusername", "testpassword");
-		userId = mDao.insertUser(testUser);
+	public void testGetUserById() {
 		User userResult = mDao.getUserById(userId);
 		assertEquals("testusername", userResult.getUsername());
 		assertEquals("testpassword", userResult.getPassword());
-		StoryTemplate testTemplate = new StoryTemplate(0, "testname", "testbody");
-		templateId = mDao.insertStoryTemplate(testTemplate);
+	}
+	
+	@Test
+	public void testGetUserByUsername() {
+		User userResult = mDao.getUserByUsername("testusername");
+		assertEquals("testusername", userResult.getUsername());
+		assertEquals("testpassword", userResult.getPassword());
+	}
+	
+	@Test
+	public void testGetTemplateById() {
 		StoryTemplate templateResult = mDao.getTemplateById(templateId);
 		assertEquals("testname", templateResult.getName());
 		assertEquals("testbody", templateResult.getBody());
-		Story testStory = new Story(0, userId, templateId, "testname", "teststorybody");
-		storyId = mDao.insertStory(testStory);
+	}
+	
+	@Test
+	public void testGetStoryById() {
 		Story storyResult = mDao.getStoryById(storyId);
 		assertEquals("testname", storyResult.getName());
 		assertEquals("teststorybody", storyResult.getBody());
