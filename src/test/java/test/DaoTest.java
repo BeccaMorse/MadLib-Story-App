@@ -36,21 +36,28 @@ public class DaoTest {
 	}
 	
 	@Test
-	public void testInsertUser() {
+	public void testGetUserById() {
 		User userResult = mDao.getUserById(userId);
 		assertEquals("testusername", userResult.getUsername());
 		assertEquals("testpassword", userResult.getPassword());
 	}
 	
 	@Test
-	public void testInsertStoryTemplate() {
+	public void testGetUserByUsername() {
+		User userResult = mDao.getUserByUsername("testusername");
+		assertEquals("testusername", userResult.getUsername());
+		assertEquals("testpassword", userResult.getPassword());
+	}
+	
+	@Test
+	public void testGetTemplateById() {
 		StoryTemplate templateResult = mDao.getTemplateById(templateId);
 		assertEquals("testname", templateResult.getName());
 		assertEquals("testbody", templateResult.getBody());
 	}
 	
 	@Test
-	public void testInsertStory() {
+	public void testGetStoryById() {
 		Story storyResult = mDao.getStoryById(storyId);
 		assertEquals("testname", storyResult.getName());
 		assertEquals("teststorybody", storyResult.getBody());
