@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\ellin\Documents\Projects\MadLib-Story-App\src\main\frontend\src\styles.css */"OmL/");
+module.exports = __webpack_require__(/*! /Users/rebeccamorse/Dev/MadLib-Story-App/src/main/frontend/src/styles.css */"OmL/");
 
 
 /***/ }),

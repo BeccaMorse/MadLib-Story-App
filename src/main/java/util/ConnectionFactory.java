@@ -17,7 +17,7 @@ public class ConnectionFactory {
 				String dbUrl;
 				if (System.getenv("DATABASE_URL") == null) {
 					username = "postgres";
-					password = "postgres";
+					password = "p";
 					dbUrl = "jdbc:postgresql://localhost/postgres?currentSchema=madlibs";
 				} else {
 					URI dbUri = new URI(System.getenv("DATABASE_URL"));
