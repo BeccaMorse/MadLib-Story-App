@@ -95,6 +95,25 @@ public class MadlibDaoImpl implements MadlibDao {
 		}
 		return user;
 	}
+	
+	@Override
+	public User getUserByUsername(String username) {
+		User user = new User();
+		String sql = "SELECT * FROM users WHERE username = ?";
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				user.setUserId(rs.getInt(1));
+				user.setUsername(rs.getString(2));
+				user.setPassword(rs.getString(3));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
 
 	@Override
 	public StoryTemplate getTemplateById(int templateId) {

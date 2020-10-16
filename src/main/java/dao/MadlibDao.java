@@ -16,6 +16,8 @@ public interface MadlibDao {
 	
 	public User getUserById(int userId);
 	
+	public User getUserByUsername(String username);
+	
 	public StoryTemplate getTemplateById(int templateId);
 	
 	public List<StoryTemplate> getAllTemplates();

@@ -15,7 +15,8 @@ import service.PutRequestHelper;
 
 @WebServlet(
 		urlPatterns = {
-				""
+				"",
+				"/api/*"
 		}
 	)
 
