@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -66,7 +67,7 @@ public class DaoTest {
 	@Test
 	public void testGetAllTemplates() {
 		List<StoryTemplate> result = mDao.getAllTemplates();
-		assertEquals(1, result.size());
+		assertNotEquals(0, result.size());
 	}
 	
 	@Test
