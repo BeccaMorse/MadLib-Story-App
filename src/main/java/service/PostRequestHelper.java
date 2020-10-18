@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import controllers.Login;
 import controllers.Logout;
 import controllers.Register;
+import controllers.Stories;
 import controllers.StoryTemplates;
 
 public class PostRequestHelper {
@@ -23,6 +24,8 @@ public class PostRequestHelper {
 			Logout.logout(req, res);
 		} else if (uri.matches("/api/templates")) {
 			StoryTemplates.addStoryTemplate(req, res);
+		} else if (uri.matches("/api/stories")) {
+			Stories.addStory(req, res);
 		}
 	}
 }

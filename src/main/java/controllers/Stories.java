@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,9 +30,28 @@ public class Stories {
 				res.setStatus(401);
 			} else {
 				int userId = ((User) session.getAttribute("user")).getUserId();
-				int insertId = mDao.insertStory(new Story(0, userId, jsonNode.get("templateId").asInt(), jsonNode.get("name").asText(), jsonNode.get("body").asText()));
+				int insertId = mDao.insertStory(new Story(0, userId, jsonNode.get("templateId").asInt(), "whatever", jsonNode.get("body").asText()));
 				res.setStatus(201);
 				res.getWriter().write(om.writeValueAsString(mDao.getStoryById(insertId)));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void getStoriesByUser(HttpServletRequest req, HttpServletResponse res) {
+		try {
+			Connection conn = ConnectionFactory.getConnection();
+			MadlibDao mDao = new MadlibDaoImpl(conn);
+			ObjectMapper om = new ObjectMapper();
+			HttpSession session = req.getSession(false);
+			if (session == null) {
+				res.setStatus(401);
+			} else {
+				int userId = ((User) session.getAttribute("user")).getUserId();
+				List<Story> stories = mDao.getStoriesByUser(userId);
+				res.setStatus(200);
+				res.getWriter().write(om.writeValueAsString(stories));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
