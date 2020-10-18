@@ -18,7 +18,7 @@ public class GetRequestHelper {
 			StoryTemplates.getAllTemplates(req, res);
 		} else if (uri.matches("/api/stories")) {
 			Stories.getStoriesByUser(req, res);
-		} else if (uri.matches("")) {
+		} else if (uri.matches("/")) {
 			RequestDispatcher redir = req.getRequestDispatcher("/index.html");
 			redir.forward(req, res);
 		}
