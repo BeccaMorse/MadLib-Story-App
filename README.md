@@ -4,7 +4,7 @@ Users can play MadLibs-style games online!
 ## Back end routes
 GET
 
-"" - serves front end
+"" - serves front end  
 "/api/templates" - gets all story templates  
 "/api/stories" - gets all stories for currently logged in user
 
@@ -15,3 +15,7 @@ POST
 "/api/logout" - logout.  No request body needed  
 "/api/templates" - add a story template.  Request body should contain {name, body}  
 "/api/stories" - add a story.  Request body should contain {templateId, body}  
+
+DELETE
+
+"/api/stories/:id" - deletes story where storyId = :id  

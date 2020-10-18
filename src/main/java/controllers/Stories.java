@@ -57,4 +57,24 @@ public class Stories {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void deleteStory(HttpServletRequest req, HttpServletResponse res) {
+		Connection conn = ConnectionFactory.getConnection();
+		MadlibDao mDao = new MadlibDaoImpl(conn);
+		HttpSession session = req.getSession(false);
+		if (session == null) {
+			res.setStatus(401);
+		} else {
+			int userId = ((User) session.getAttribute("user")).getUserId();
+			Story story = mDao.getStoryById(Integer.parseInt(req.getRequestURI().split("/")[3]));
+			if (story.getStoryId() == 0) {
+				res.setStatus(404);
+			} else if (story.getUserId() != userId) {
+				res.setStatus(401);
+			} else {
+				mDao.deleteStoryById(story.getStoryId());
+				res.setStatus(200);
+			}
+		}
+	}
 }
