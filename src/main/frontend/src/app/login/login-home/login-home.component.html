@@ -1,0 +1,11 @@
+<form>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input (input)="onUsernameInput($event)" type="text" class="form-control" id="username" placeholder="Enter username">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input (input)="onPasswordInput($event)" type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
+    <button (click)="handleLogin()" type="submit" class="btn btn-primary" id="login">Login</button>
+  </form>
