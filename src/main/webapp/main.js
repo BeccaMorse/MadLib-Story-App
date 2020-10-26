@@ -171,11 +171,29 @@ class RegisterHomeComponent {
         this.confirmPasswordInput = event.target.value;
         console.log(this.passwordInput);
     }
+    handleRegistration(event) {
+        event.preventDefault();
+        const data = {
+            username: this.usernameInput,
+            password: this.passwordInput,
+            confirmPassword: this.confirmPasswordInput
+        };
+        try {
+            this.userService.registerUser(data).subscribe((response) => {
+                console.log(response + 'has been registered!');
+                this.userService.user = response.username;
+                this.router.navigateByUrl('');
+            });
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
     ngOnInit() {
     }
 }
 RegisterHomeComponent.ɵfac = function RegisterHomeComponent_Factory(t) { return new (t || RegisterHomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"])); };
-RegisterHomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegisterHomeComponent, selectors: [["app-register-home"]], decls: 15, vars: 0, consts: [[1, "form-group"], ["for", "username"], ["type", "text", "id", "username", "placeholder", "Enter username", 1, "form-control", 3, "input"], ["for", "inputPassword"], ["type", "password", "id", "inputPassword", "placeholder", "Password", 1, "form-control", 3, "input"], ["for", "confirmPassword"], ["type", "password", "id", "confirmPassword", "placeholder", "Confirm Password", 1, "form-control", 3, "input"], ["type", "submit", "id", "register", 1, "btn", "btn-primary"]], template: function RegisterHomeComponent_Template(rf, ctx) { if (rf & 1) {
+RegisterHomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegisterHomeComponent, selectors: [["app-register-home"]], decls: 15, vars: 0, consts: [[1, "form-group"], ["for", "username"], ["type", "text", "id", "username", "placeholder", "Enter username", 1, "form-control", 3, "input"], ["for", "inputPassword"], ["type", "password", "id", "inputPassword", "placeholder", "Password", 1, "form-control", 3, "input"], ["for", "confirmPassword"], ["type", "password", "id", "confirmPassword", "placeholder", "Confirm Password", 1, "form-control", 3, "input"], ["type", "submit", "id", "register", 1, "btn", "btn-primary", 3, "click"]], template: function RegisterHomeComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label", 1);
@@ -202,6 +220,7 @@ RegisterHomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "button", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function RegisterHomeComponent_Template_button_click_13_listener($event) { return ctx.handleRegistration($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Register");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -349,6 +368,7 @@ class UserService {
         this.user = null;
     }
     registerUser(user) {
+        console.log(user);
         return this.http.post("api/register", user);
     }
     loginUser(user) {
@@ -399,13 +419,15 @@ class LoginHomeComponent {
         this.passwordInput = event.target.value;
         console.log(this.passwordInput);
     }
-    handleLogin() {
+    handleLogin(event) {
+        event.preventDefault();
         const data = {
             username: this.usernameInput,
             password: this.passwordInput
         };
         try {
             this.userService.loginUser(data).subscribe((response) => {
+                console.log(response + 'is in!');
                 this.userService.user = response.username;
                 this.router.navigateByUrl('');
             });
@@ -437,7 +459,7 @@ LoginHomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginHomeComponent_Template_button_click_9_listener() { return ctx.handleLogin(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginHomeComponent_Template_button_click_9_listener($event) { return ctx.handleLogin($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Login");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();

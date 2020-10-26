@@ -23,14 +23,16 @@ export class LoginHomeComponent implements OnInit {
     this.passwordInput = event.target.value;
     console.log(this.passwordInput);
   }
-  
-  handleLogin() {
+
+  handleLogin(event: any) {
+    event.preventDefault();
     const data = {
       username: this.usernameInput,
       password: this.passwordInput
     };
     try {
       this.userService.loginUser(data).subscribe((response: any) => {
+        console.log(response + 'is in!');
         this.userService.user = response.username;
         this.router.navigateByUrl('');
       })

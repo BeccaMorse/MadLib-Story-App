@@ -30,14 +30,16 @@ export class RegisterHomeComponent implements OnInit {
     console.log(this.passwordInput);
   }
 
-  handleRegistration() {
+  handleRegistration(event: any) {
+    event.preventDefault();
     const data = {
-      usernameInput: this.usernameInput,
-      passwordInput: this.passwordInput,
-      confirmPasswordInput: this.confirmPasswordInput
+      username: this.usernameInput,
+      password: this.passwordInput,
+      confirmPassword: this.confirmPasswordInput
     };
     try {
       this.userService.registerUser(data).subscribe((response: any) => {
+        console.log(response + 'has been registered!');
         this.userService.user = response.username;
         this.router.navigateByUrl('');
       })

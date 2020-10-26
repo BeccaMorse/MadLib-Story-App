@@ -10,6 +10,7 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   registerUser(user: any) {
+    console.log(user)
     return this.http.post("api/register", user)
   }
   loginUser(user: any) {
