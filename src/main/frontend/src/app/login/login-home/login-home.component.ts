@@ -11,30 +11,30 @@ export class LoginHomeComponent implements OnInit {
   
   constructor(private router: Router, private userService: UserService) { }
 
-  usernameInput: string = "";
-  passwordInput: string = "";
+  username: string = "";
+  password: string = "";
 
-  onUsernameInput(event: any) {
-    this.usernameInput = event.target.value;
-    console.log(this.usernameInput);
+  setUsername(event: any) {
+    this.username = event.target.value;
+    console.log(this.username);
   }
 
-  onPasswordInput(event: any) {
-    this.passwordInput = event.target.value;
-    console.log(this.passwordInput);
+  setPassword(event: any) {
+    this.password = event.target.value;
+    console.log(this.password);
   }
 
   handleLogin(event: any) {
     event.preventDefault();
     const data = {
-      username: this.usernameInput,
-      password: this.passwordInput
+      username: this.username,
+      password: this.password
     };
     try {
       this.userService.loginUser(data).subscribe((response: any) => {
-        console.log(response + 'is in!');
+        console.log(response + 'is logging in');
         this.userService.user = response.username;
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('/home');
       })
     } catch(error: any) {
       console.log(error);

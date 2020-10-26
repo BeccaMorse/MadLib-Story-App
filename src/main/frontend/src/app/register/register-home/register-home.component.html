@@ -1,15 +1,15 @@
 <form>
     <div class="form-group">
       <label for="username">Username</label>
-      <input (input)="onUsernameInput($event)" type="text" class="form-control" id="username" placeholder="Enter username">
+      <input (input)="setUsername($event)" type="text" class="form-control" id="username" placeholder="Enter username">
     </div>
     <div class="form-group">
       <label for="inputPassword">Password</label>
-      <input (input)="onPasswordInput($event)" type="password" class="form-control" id="inputPassword" placeholder="Password">
+      <input (input)="setPassword($event)" type="password" class="form-control" id="inputPassword" placeholder="Password">
     </div>
     <div class="form-group">
       <label for="confirmPassword">Confirm Password</label>
-      <input (input)="onConfirmPasswordInput($event)" type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+      <input (input)="setConfirmPassword($event)" type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
     </div>
     <button (click)="handleRegistration($event)" type="submit" class="btn btn-primary" id="register">Register</button>
   </form>

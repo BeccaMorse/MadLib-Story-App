@@ -134,109 +134,6 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
 
 /***/ }),
 
-/***/ "i96t":
-/*!*******************************************************************!*\
-  !*** ./src/app/register/register-home/register-home.component.ts ***!
-  \*******************************************************************/
-/*! exports provided: RegisterHomeComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterHomeComponent", function() { return RegisterHomeComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../user.service */ "xdv0");
-
-
-
-
-class RegisterHomeComponent {
-    constructor(router, userService) {
-        this.router = router;
-        this.userService = userService;
-        this.usernameInput = "";
-        this.passwordInput = "";
-        this.confirmPasswordInput = "";
-    }
-    onUsernameInput(event) {
-        this.usernameInput = event.target.value;
-        console.log(this.usernameInput);
-    }
-    onPasswordInput(event) {
-        this.passwordInput = event.target.value;
-        console.log(this.passwordInput);
-    }
-    onConfirmPasswordInput(event) {
-        this.confirmPasswordInput = event.target.value;
-        console.log(this.passwordInput);
-    }
-    handleRegistration(event) {
-        event.preventDefault();
-        const data = {
-            username: this.usernameInput,
-            password: this.passwordInput,
-            confirmPassword: this.confirmPasswordInput
-        };
-        try {
-            this.userService.registerUser(data).subscribe((response) => {
-                console.log(response + 'has been registered!');
-                this.userService.user = response.username;
-                this.router.navigateByUrl('');
-            });
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
-    ngOnInit() {
-    }
-}
-RegisterHomeComponent.ɵfac = function RegisterHomeComponent_Factory(t) { return new (t || RegisterHomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"])); };
-RegisterHomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegisterHomeComponent, selectors: [["app-register-home"]], decls: 15, vars: 0, consts: [[1, "form-group"], ["for", "username"], ["type", "text", "id", "username", "placeholder", "Enter username", 1, "form-control", 3, "input"], ["for", "inputPassword"], ["type", "password", "id", "inputPassword", "placeholder", "Password", 1, "form-control", 3, "input"], ["for", "confirmPassword"], ["type", "password", "id", "confirmPassword", "placeholder", "Confirm Password", 1, "form-control", 3, "input"], ["type", "submit", "id", "register", 1, "btn", "btn-primary", 3, "click"]], template: function RegisterHomeComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Username");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function RegisterHomeComponent_Template_input_input_4_listener($event) { return ctx.onUsernameInput($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "label", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Password");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "input", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function RegisterHomeComponent_Template_input_input_8_listener($event) { return ctx.onPasswordInput($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "label", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Confirm Password");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "input", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function RegisterHomeComponent_Template_input_input_12_listener($event) { return ctx.onConfirmPasswordInput($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "button", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function RegisterHomeComponent_Template_button_click_13_listener($event) { return ctx.handleRegistration($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Register");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLWhvbWUvcmVnaXN0ZXItaG9tZS5jb21wb25lbnQuY3NzIn0= */"] });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RegisterHomeComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-        args: [{
-                selector: 'app-register-home',
-                templateUrl: './register-home.component.html',
-                styleUrls: ['./register-home.component.css']
-            }]
-    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }, { type: _user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] }]; }, null); })();
-
-
-/***/ }),
-
 /***/ "kWWo":
 /*!********************************************!*\
   !*** ./src/app/navbar/navbar.component.ts ***!
@@ -266,7 +163,7 @@ NavbarComponent.ɵfac = function NavbarComponent_Factory(t) { return new (t || N
 NavbarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NavbarComponent, selectors: [["app-navbar"]], decls: 19, vars: 0, consts: [[1, "navbar", "navbar-expand-sm", "navbar-light", "bg-light"], ["href", "#", 1, "navbar-brand"], ["type", "button", "data-toggle", "collapse", "data-target", "#navbarNavAltMarkup", "aria-controls", "navbarNavAltMarkup", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler"], [1, "navbar-toggler-icon"], ["id", "navbarNavAltMarkup", 1, "collapse", "navbar-collapse"], [1, "navbar-nav"], ["href", "#", 1, "nav-item", "nav-link", "active"], [1, "sr-only"], ["routerLink", "/register", 1, "nav-item", "nav-link"], ["routerLink", "/login", 1, "nav-item", "nav-link"], ["routerLink", "/logout", 1, "nav-item", "nav-link"], ["routerLink", "/templates", 1, "nav-item", "nav-link", "disabled"]], template: function NavbarComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Navbar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Mad Story Time ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "span", 3);
@@ -319,18 +216,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _login_login_home_login_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login/login-home/login-home.component */ "yUyT");
-/* harmony import */ var _register_register_home_register_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./register/register-home/register-home.component */ "i96t");
 
 
 
 
-
-
-const routes = [
-    { path: 'login', component: _login_login_home_login_home_component__WEBPACK_IMPORTED_MODULE_2__["LoginHomeComponent"] },
-    { path: 'register', component: _register_register_home_register_home_component__WEBPACK_IMPORTED_MODULE_3__["RegisterHomeComponent"] }
-];
+const routes = [];
 class AppRoutingModule {
 }
 AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
@@ -383,95 +273,6 @@ UserService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjec
                 providedIn: 'root'
             }]
     }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "yUyT":
-/*!**********************************************************!*\
-  !*** ./src/app/login/login-home/login-home.component.ts ***!
-  \**********************************************************/
-/*! exports provided: LoginHomeComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginHomeComponent", function() { return LoginHomeComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../user.service */ "xdv0");
-
-
-
-
-class LoginHomeComponent {
-    constructor(router, userService) {
-        this.router = router;
-        this.userService = userService;
-        this.usernameInput = "";
-        this.passwordInput = "";
-    }
-    onUsernameInput(event) {
-        this.usernameInput = event.target.value;
-        console.log(this.usernameInput);
-    }
-    onPasswordInput(event) {
-        this.passwordInput = event.target.value;
-        console.log(this.passwordInput);
-    }
-    handleLogin(event) {
-        event.preventDefault();
-        const data = {
-            username: this.usernameInput,
-            password: this.passwordInput
-        };
-        try {
-            this.userService.loginUser(data).subscribe((response) => {
-                console.log(response + 'is in!');
-                this.userService.user = response.username;
-                this.router.navigateByUrl('');
-            });
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
-    ngOnInit() {
-    }
-}
-LoginHomeComponent.ɵfac = function LoginHomeComponent_Factory(t) { return new (t || LoginHomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"])); };
-LoginHomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginHomeComponent, selectors: [["app-login-home"]], decls: 11, vars: 0, consts: [[1, "form-group"], ["for", "username"], ["type", "text", "id", "username", "placeholder", "Enter username", 1, "form-control", 3, "input"], ["for", "inputPassword"], ["type", "password", "id", "inputPassword", "placeholder", "Password", 1, "form-control", 3, "input"], ["type", "submit", "id", "login", 1, "btn", "btn-primary", 3, "click"]], template: function LoginHomeComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Username");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "input", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function LoginHomeComponent_Template_input_input_4_listener($event) { return ctx.onUsernameInput($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "label", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Password");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "input", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("input", function LoginHomeComponent_Template_input_input_8_listener($event) { return ctx.onPasswordInput($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LoginHomeComponent_Template_button_click_9_listener($event) { return ctx.handleLogin($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Login");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLWhvbWUvbG9naW4taG9tZS5jb21wb25lbnQuY3NzIn0= */"] });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LoginHomeComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-        args: [{
-                selector: 'app-login-home',
-                templateUrl: './login-home.component.html',
-                styleUrls: ['./login-home.component.css']
-            }]
-    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }, { type: _user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] }]; }, null); })();
 
 
 /***/ }),

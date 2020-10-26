@@ -11,35 +11,38 @@ export class RegisterHomeComponent implements OnInit {
 
   constructor(private router: Router, private userService: UserService) { }
 
-  usernameInput: string = "";
-  passwordInput: string = "";
-  confirmPasswordInput: string = "";
+  username: string = "";
+  password: string = "";
+  confirmPassword: string = "";
 
-  onUsernameInput(event: any) {
-    this.usernameInput = event.target.value;
-    console.log(this.usernameInput);
+  setUsername(event: any) {
+    this.username = event.target.value;
+ }
+
+  setPassword(event: any) {
+    this.password = event.target.value;
+    console.log(this.password);
   }
 
-  onPasswordInput(event: any) {
-    this.passwordInput = event.target.value;
-    console.log(this.passwordInput);
-  }
-
-  onConfirmPasswordInput(event: any) {
-    this.confirmPasswordInput = event.target.value;
-    console.log(this.passwordInput);
+  setConfirmPassword(event: any) {
+    this.confirmPassword = event.target.value;
+    console.log(this.password);
   }
 
   handleRegistration(event: any) {
     event.preventDefault();
     const data = {
-      username: this.usernameInput,
-      password: this.passwordInput,
-      confirmPassword: this.confirmPasswordInput
+      username: this.username,
+      password: this.password,
+      confirmPassword: this.confirmPassword
     };
+
+    if(this.password != this.confirmPassword) {
+      return console.log("password and confirm password must match");
+    }
+
     try {
       this.userService.registerUser(data).subscribe((response: any) => {
-        console.log(response + 'has been registered!');
         this.userService.user = response.username;
         this.router.navigateByUrl('');
       })
