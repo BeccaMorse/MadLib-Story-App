@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +32,19 @@ public class StoryTemplates {
 				res.setStatus(201);
 				res.getWriter().write(om.writeValueAsString(mDao.getTemplateById(insertId)));
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void getAllTemplates(HttpServletRequest req, HttpServletResponse res) {
+		try {
+			Connection conn = ConnectionFactory.getConnection();
+			MadlibDao mDao = new MadlibDaoImpl(conn);
+			ObjectMapper om = new ObjectMapper();
+			List<StoryTemplate> templates = mDao.getAllTemplates();
+			res.setStatus(200);
+			res.getWriter().write(om.writeValueAsString(templates));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

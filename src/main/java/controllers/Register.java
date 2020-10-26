@@ -23,15 +23,19 @@ public class Register {
 			MadlibDao mDao = new MadlibDaoImpl(conn);
 			ObjectMapper om = new ObjectMapper();
 			JsonNode jsonNode = om.readTree(req.getReader());
-			int insertId = mDao.insertUser(new User(0, jsonNode.get("username").asText(), jsonNode.get("password").asText()));
-			if (insertId > 0) {
-				HttpSession session = req.getSession();
-				User user = mDao.getUserById(insertId);
-				session.setAttribute("user", user);
-				res.setStatus(201);
-				res.getWriter().write(om.writeValueAsString(user));
-			} else {
+			if (!jsonNode.get("password").asText().equals(jsonNode.get("confirmPassword").asText())) {
 				res.setStatus(400);
+			} else {
+				int insertId = mDao.insertUser(new User(0, jsonNode.get("username").asText(), jsonNode.get("password").asText()));
+				if (insertId > 0) {
+					HttpSession session = req.getSession();
+					User user = mDao.getUserById(insertId);
+					session.setAttribute("user", user);
+					res.setStatus(201);
+					res.getWriter().write(om.writeValueAsString(user));
+				} else {
+					res.setStatus(400);
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
