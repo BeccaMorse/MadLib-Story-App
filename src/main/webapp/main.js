@@ -134,6 +134,42 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
 
 /***/ }),
 
+/***/ "ZRHj":
+/*!**********************************************************!*\
+  !*** ./src/app/story/story-home/story-home.component.ts ***!
+  \**********************************************************/
+/*! exports provided: StoryHomeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoryHomeComponent", function() { return StoryHomeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+class StoryHomeComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+}
+StoryHomeComponent.ɵfac = function StoryHomeComponent_Factory(t) { return new (t || StoryHomeComponent)(); };
+StoryHomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: StoryHomeComponent, selectors: [["app-story-home"]], decls: 2, vars: 0, template: function StoryHomeComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "story-home works!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3N0b3J5L3N0b3J5LWhvbWUvc3RvcnktaG9tZS5jb21wb25lbnQuY3NzIn0= */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](StoryHomeComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'app-story-home',
+                templateUrl: './story-home.component.html',
+                styleUrls: ['./story-home.component.css']
+            }]
+    }], function () { return []; }, null); })();
+
+
+/***/ }),
+
 /***/ "i96t":
 /*!*******************************************************************!*\
   !*** ./src/app/register/register-home/register-home.component.ts ***!
@@ -164,11 +200,9 @@ class RegisterHomeComponent {
     }
     setPassword(event) {
         this.password = event.target.value;
-        console.log(this.password);
     }
     setConfirmPassword(event) {
         this.confirmPassword = event.target.value;
-        console.log(this.password);
     }
     handleRegistration(event) {
         event.preventDefault();
@@ -276,7 +310,7 @@ class NavbarComponent {
     }
 }
 NavbarComponent.ɵfac = function NavbarComponent_Factory(t) { return new (t || NavbarComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"])); };
-NavbarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NavbarComponent, selectors: [["app-navbar"]], decls: 19, vars: 0, consts: [[1, "navbar", "navbar-expand-sm", "navbar-light", "bg-light"], ["href", "#", 1, "navbar-brand"], ["type", "button", "data-toggle", "collapse", "data-target", "#navbarNavAltMarkup", "aria-controls", "navbarNavAltMarkup", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler"], [1, "navbar-toggler-icon"], ["id", "navbarNavAltMarkup", 1, "collapse", "navbar-collapse"], [1, "navbar-nav"], ["href", "#", 1, "nav-item", "nav-link", "active"], [1, "sr-only"], ["routerLink", "/register", 1, "nav-item", "nav-link"], ["routerLink", "/login", 1, "nav-item", "nav-link"], ["routerLink", "/logout", 1, "nav-item", "nav-link"], ["routerLink", "/templates", 1, "nav-item", "nav-link", "disabled"]], template: function NavbarComponent_Template(rf, ctx) { if (rf & 1) {
+NavbarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: NavbarComponent, selectors: [["app-navbar"]], decls: 19, vars: 0, consts: [[1, "navbar", "navbar-expand-sm", "navbar-light", "bg-light"], ["href", "#", 1, "navbar-brand"], ["type", "button", "data-toggle", "collapse", "data-target", "#navbarNavAltMarkup", "aria-controls", "navbarNavAltMarkup", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler"], [1, "navbar-toggler-icon"], ["id", "navbarNavAltMarkup", 1, "collapse", "navbar-collapse"], [1, "navbar-nav"], ["href", "#", 1, "nav-item", "nav-link", "active"], [1, "sr-only"], ["routerLink", "/register", 1, "nav-item", "nav-link"], ["routerLink", "/login", 1, "nav-item", "nav-link"], ["routerLink", "/logout", 1, "nav-item", "nav-link"], ["routerLink", "/templates", 1, "nav-item", "nav-link"]], template: function NavbarComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Mad Story Time ");
@@ -335,6 +369,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_home_login_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login/login-home/login-home.component */ "yUyT");
 /* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navbar/navbar.component */ "kWWo");
 /* harmony import */ var _register_register_home_register_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./register/register-home/register-home.component */ "i96t");
+/* harmony import */ var _story_story_home_story_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./story/story-home/story-home.component */ "ZRHj");
+
 
 
 
@@ -345,7 +381,8 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: 'login', component: _login_login_home_login_home_component__WEBPACK_IMPORTED_MODULE_2__["LoginHomeComponent"] },
     { path: 'register', component: _register_register_home_register_home_component__WEBPACK_IMPORTED_MODULE_4__["RegisterHomeComponent"] },
-    { path: 'logout', component: _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_3__["NavbarComponent"] }
+    { path: 'logout', component: _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_3__["NavbarComponent"] },
+    { path: 'templates', component: _story_story_home_story_home_component__WEBPACK_IMPORTED_MODULE_5__["StoryHomeComponent"] }
 ];
 class AppRoutingModule {
 }
@@ -432,11 +469,9 @@ class LoginHomeComponent {
     }
     setUsername(event) {
         this.username = event.target.value;
-        console.log(this.username);
     }
     setPassword(event) {
         this.password = event.target.value;
-        console.log(this.password);
     }
     handleLogin(event) {
         event.preventDefault();
@@ -448,7 +483,7 @@ class LoginHomeComponent {
             this.userService.loginUser(data).subscribe((response) => {
                 console.log(response + 'is logging in');
                 this.userService.user = response.username;
-                this.router.navigateByUrl('/home');
+                this.router.navigateByUrl('');
             });
         }
         catch (error) {
