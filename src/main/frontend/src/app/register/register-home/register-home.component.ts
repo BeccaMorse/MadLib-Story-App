@@ -21,12 +21,10 @@ export class RegisterHomeComponent implements OnInit {
 
   setPassword(event: any) {
     this.password = event.target.value;
-    console.log(this.password);
   }
 
   setConfirmPassword(event: any) {
     this.confirmPassword = event.target.value;
-    console.log(this.password);
   }
 
   handleRegistration(event: any) {

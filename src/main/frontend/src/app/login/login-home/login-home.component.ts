@@ -16,12 +16,10 @@ export class LoginHomeComponent implements OnInit {
 
   setUsername(event: any) {
     this.username = event.target.value;
-    console.log(this.username);
   }
 
   setPassword(event: any) {
     this.password = event.target.value;
-    console.log(this.password);
   }
 
   handleLogin(event: any) {
@@ -34,7 +32,7 @@ export class LoginHomeComponent implements OnInit {
       this.userService.loginUser(data).subscribe((response: any) => {
         console.log(response + 'is logging in');
         this.userService.user = response.username;
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('');
       })
     } catch(error: any) {
       console.log(error);
